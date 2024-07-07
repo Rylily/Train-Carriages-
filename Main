@@ -1,0 +1,39 @@
+class Train:
+  total_carriages=0
+  total_size=0
+
+  def __init__(self):
+    self.carriage_list=[]
+
+  def input_list(self):
+    carriagesize=input("Enter carriage size: ")
+    self.carriage_list.append(carriagesize)
+    sizes=carriagesize.split()
+    Train.total_carriages=Train.total_carriages+len(sizes)
+    for i in range(len(sizes)):
+      sizes[i]=int(sizes[i])
+      Train.total_size=Train.total_size+sizes[i]
+
+  def display(self):
+    for i in range(len(self.carriage_list)):
+      printing=self.carriage_list[i].split()
+      for i in range(len(printing)-1):
+        printing[i]=int(printing[i])
+        for i in range(printing[i]):
+          print("#",end="")
+        print("-",end="")
+      printing[len(printing)-1]=int(printing[len(printing)-1])
+      for i in range(printing[len(printing)-1]):
+        print("#",end="")
+      print()
+      print("total carriages",Train.total_carriages)
+      print("total size",Train.total_size)
+      print()
+
+train1=Train()
+train1.input_list()
+train1.display()
+
+Train2=Train()
+Train2.input_list()
+Train2.display()
